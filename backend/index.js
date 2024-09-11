@@ -12,7 +12,7 @@ const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' });
 const fs = require('fs');
 const path=require('path');
-reuqire("dotenv").config(); //config dotenv file
+require("dotenv").config(); //config dotenv file
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.JWT_SECERET;
 
