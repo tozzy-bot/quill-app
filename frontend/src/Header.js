@@ -2,10 +2,12 @@ import {Link} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {UserContext} from "./UserContext";
 
+const BASE_URL='https://quill-app-backend.onrender.com';
+
 export default function Header() {
   const {setUserInfo,userInfo} = useContext(UserContext);
   useEffect(() => {
-    fetch('http://localhost:4000/profile', {
+    fetch(`${BASE_URL}/profile`, {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {
@@ -15,7 +17,7 @@ export default function Header() {
   }, []);
 
   function logout() {
-    fetch('http://localhost:4000/logout', {
+    fetch(`${BAS_URL}/logout`, {
       credentials: 'include',
       method: 'POST',
     });
@@ -30,7 +32,6 @@ export default function Header() {
       <nav>
         {username && (
           <>
-            <span>Hello, {username}</span>
             <Link to="/create">Create new post</Link>
             <a onClick={logout}>Logout ({username})</a>
           </>
