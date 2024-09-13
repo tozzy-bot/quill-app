@@ -7,6 +7,7 @@ This is a repository of a quill a web application that was made using MERN stack
 1.  Responsive Web Design for pc, tablets and mobile
 2.  Login and Registration of new Users
 3.  CRUD for posts by logged in users
+4.  Password Encryption before uploading it to the database
 
 [Demo](https://quill-app-frontend.onrender.com)
 
