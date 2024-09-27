@@ -16,7 +16,10 @@ require("dotenv").config(); //config dotenv file
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.JWT_SECERET;
 
-app.use(cors({credentials:true,origin:'http://localhost:3000'}));
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:3000', 'https://quill-app-frontend.onrender.com']
+}));  //CORS
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(path.join(__dirname,'uploads')));
