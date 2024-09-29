@@ -17,7 +17,6 @@ const salt = bcrypt.genSaltSync(10);
 const secret = process.env.JWT_SECERET;
 
 app.use(cors({
-  credentials: true,
   origin: ['http://localhost:3000', 'https://quill-app-frontend.onrender.com']
 }));  //CORS
 app.use(express.json());
