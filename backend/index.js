@@ -20,6 +20,7 @@ app.use(cors({
   origin: ['http://localhost:3000', 'https://quill-app-frontend.onrender.com'],
   methods: ['GET','POST','DELAY','OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));  //CORS
 app.use(express.json());
 app.use(cookieParser());
