@@ -17,7 +17,7 @@ export default function LoginPage() {
       headers: {
         'Content-Type':'application/json',
         "Accept": "application/json"},
-      //credentials: 'include',
+      credentials: 'include',
     });
     if (response.ok) {
       response.json().then(userInfo => {
