@@ -1,6 +1,6 @@
 # Quill: MERN stack application
 
-This is a repository of a quill a web application that was made using MERN stack. Please follow the instructions to set up the project.
+This is a repository of Quill, a web application that was made using MongoDB, Express, React and Nodejs stack. Please follow the instructions to set up the project.
 
 **Features**
 
