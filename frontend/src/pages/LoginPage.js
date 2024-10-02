@@ -1,6 +1,8 @@
 import {useContext, useState} from "react";
 import {Navigate} from "react-router-dom";
 import {UserContext} from "../UserContext";
+//import * as dotenv from('dotenv');
+import axios from "axios";
 
 const BASE_URL='https://quill-app-backend.onrender.com';
 
@@ -11,6 +13,7 @@ export default function LoginPage() {
   const {setUserInfo} = useContext(UserContext);
   async function login(ev) {
     ev.preventDefault();
+<<<<<<< Updated upstream
     const response = await fetch(`${BASE_URL}/login`, {
       method: 'POST',
       body: JSON.stringify({username, password}),
@@ -18,6 +21,15 @@ export default function LoginPage() {
         //"Accept": "application/json"},
       credentials: 'include',
     });
+=======
+    const response = await axios.post(`https://quill-app-backend.onrender.com/login`, 
+      { username, password },
+      { 
+        headers: { 'Content-Type': 'application/json' }, 
+        withCredentials: true, 
+      }
+    );
+>>>>>>> Stashed changes
     if (response.ok) {
       response.json().then(userInfo => {
         setUserInfo(userInfo);
