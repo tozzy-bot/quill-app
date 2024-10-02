@@ -45,6 +45,7 @@ app.post('/login', async (req,res) => {
   const userDoc = await User.findOne({username});
   const passOk = bcrypt.compareSync(password, userDoc.password);
   if (passOk) {
+    console.log("User doc");
     // logged in
     jwt.sign({username,id:userDoc._id}, secret, {}, (err,token) => {
       if (err) throw err;
@@ -52,6 +53,8 @@ app.post('/login', async (req,res) => {
         id: userDoc._id,
         username,
       });
+      res.setHeader('Access-Control-Allow-Origin', 'https://quill-app-frontend.onrender.com');
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
       res.json({
         id: userDoc._id,
         username,
