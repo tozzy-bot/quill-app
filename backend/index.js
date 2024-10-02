@@ -18,8 +18,6 @@ const secret = process.env.JWT_SECERET;
 app.use(cookieParser());
 app.use(cors({
   origin: 'https://quill-app-frontend.onrender.com',
-  //methods: ['GET','POST','DELAY','OPTIONS'],
-  //allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));  //CORS
 app.use(express.json());
@@ -50,8 +48,8 @@ app.post('/login', async (req,res) => {
     // logged in
     jwt.sign({username,id:userDoc._id}, secret, {}, (err,token) => {
       if (err) throw err;
-      res.cookie('token', token).json({
-        id:userDoc._id,
+      res.cookie('token', token, { httpOnly: true, sameSite: 'None', secure: true }).json({
+        id: userDoc._id,
         username,
       });
     });
