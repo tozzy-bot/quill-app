@@ -15,15 +15,15 @@ const path=require('path');
 require("dotenv").config(); //config dotenv file
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.JWT_SECERET;
-
+app.use(cookieParser());
 app.use(cors({
   origin: 'https://quill-app-frontend.onrender.com',
   //methods: ['GET','POST','DELAY','OPTIONS'],
   //allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+  credentials: true,
 }));  //CORS
 app.use(express.json());
-app.use(cookieParser());
+
 app.use('/uploads', express.static(path.join(__dirname,'uploads')));
 
 mongoose.connect(process.env.MONGO_URI);
