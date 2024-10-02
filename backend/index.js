@@ -18,8 +18,8 @@ const secret = process.env.JWT_SECERET;
 
 app.use(cors({
   origin: 'https://quill-app-frontend.onrender.com',
-  methods: ['GET','POST','DELAY','OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  //methods: ['GET','POST','DELAY','OPTIONS'],
+  //allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));  //CORS
 app.use(express.json());
