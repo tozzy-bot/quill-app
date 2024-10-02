@@ -54,12 +54,12 @@ app.post('/login', async (req,res) => {
         id: userDoc._id,
         username,
       });
-      res.setHeader('Access-Control-Allow-Origin', 'https://quill-app-frontend.onrender.com');
-      res.setHeader('Access-Control-Allow-Credentials', 'true');
-      res.json({
-        id: userDoc._id,
-        username,
-      });
+      // res.setHeader('Access-Control-Allow-Origin', 'https://quill-app-frontend.onrender.com');
+      // res.setHeader('Access-Control-Allow-Credentials', 'true');
+      // res.json({
+      //   id: userDoc._id,
+      //   username,
+      // });
     });
   } else {
     res.status(400).json('wrong credentials');
