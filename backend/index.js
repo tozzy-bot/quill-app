@@ -44,7 +44,7 @@ app.post('/login', async (req,res) => {
   const {username,password} = req.body;
   const userDoc = await User.findOne({username});
   const passOk = bcrypt.compareSync(password, userDoc.password);
-  console.log("User doc",username,secret,password,userDoc.password,userDoc._id);
+  console.log("User doc",username,secret,password,passOk,userDoc._id);
   if (passOk) {
     
     // logged in
@@ -61,7 +61,7 @@ app.post('/login', async (req,res) => {
       //   username,
       // });
     });
-  } else {
+  } else if(!passOk) {
     res.status(400).json('wrong credentials');
   }
 });
