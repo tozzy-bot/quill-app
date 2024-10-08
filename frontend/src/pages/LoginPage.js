@@ -20,7 +20,10 @@ export default function LoginPage() {
       }
     );
     if (response.ok) {
+      console.log("Response");
+      
       response.json().then(userInfo => {
+        console.log("User Info", userInfo);
         setUserInfo(userInfo);
         setRedirect(true);
       });
