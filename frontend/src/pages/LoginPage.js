@@ -19,6 +19,7 @@ export default function LoginPage() {
         withCredentials: true, 
       }
     );
+    console.log("Response");
     if (response.ok) {
       console.log("Response");
       
