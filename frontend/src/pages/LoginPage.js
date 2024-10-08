@@ -21,13 +21,15 @@ export default function LoginPage() {
     );
     
     if (response.data?.id) {
-      console.log("Respones",response.data.json());
-      
-      response.data.json().then(userInfo => {
-        console.log("User Info", userInfo);
+      console.log("Respones",response.data);
+      let userInfo=response.data
+      //response.data.json().then(userInfo => {
+        //console.log("User Info", userInfo);
+      if(userInfo){
         setUserInfo(userInfo);
         setRedirect(true);
-      });
+      }
+      //});
     } else {
       alert('wrong credentials');
     }
