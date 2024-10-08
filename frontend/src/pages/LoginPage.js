@@ -20,7 +20,7 @@ export default function LoginPage() {
       }
     );
     console.log(response);
-    if (response.ok) {
+    if (response.data?.id) {
       console.log("Response");
       
       response.json().then(userInfo => {
