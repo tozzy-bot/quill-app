@@ -19,11 +19,11 @@ export default function LoginPage() {
         withCredentials: true, 
       }
     );
-    console.log(response);
+    
     if (response.data?.id) {
-      console.log("Response");
+      console.log("Respones",response.data.json());
       
-      response.json().then(userInfo => {
+      response.data.json().then(userInfo => {
         console.log("User Info", userInfo);
         setUserInfo(userInfo);
         setRedirect(true);
