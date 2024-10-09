@@ -9,7 +9,7 @@ This is a repository of Quill, a web application that was made using MongoDB, Ex
 3.  CRUD for posts by logged in users
 4.  Password Encryption before uploading it to the database
 
-[Demo](https://quill-app-frontend.onrender.com)
+[Deployed Site](https://quill-app-frontend.onrender.com)
 
 ## Instruction
 +   run npm i && npm start for both frontend and backend side to start the app.
