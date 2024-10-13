@@ -14,16 +14,23 @@ export default function CreatePost() {
   const [redirect, setRedirect] = useState(false);
   async function createNewPost(ev) {
     const data = new FormData();
-    data.set('title', title);
-    data.set('summary', summary);
-    data.set('content', content);
-    data.set('file', files[0]);
+    data.append('title', title);
+    data.append('summary', summary);
+    data.append('content', content);
+    data.append('file', files[0]);
     ev.preventDefault();
-    const response = await fetch(`${BASE_URL}/post`, {
-      method: 'POST',
-      body: data,
-      credentials: 'include',
-    });
+    const response = await axios.post(`${BASE_URL}/post`, 
+      data,
+      { 
+        headers: { 'Content-Type': 'multipart/form-data' }, 
+        withCredentials: true,
+      });
+    //const response = await fetch(`${BASE_URL}/post`, {
+      //method: 'POST',
+      //body: data,
+      //credentials: 'include',
+    //});
+    console.log(response);
     if (response.ok) {
       setRedirect(true);
     }
