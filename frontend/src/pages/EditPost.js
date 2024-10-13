@@ -33,11 +33,18 @@ export default function EditPost() {
     if (files?.[0]) {
       data.set('file', files?.[0]);
     }
-    const response = await fetch(`${BASE_URL}/post`, {
-      method: 'PUT',
-      body: data,
-      credentials: 'include',
-    });
+    const response = await axios.put(`${BASE_URL}/post`, 
+      data,
+      { 
+        headers: { 'Content-Type': 'multipart/form-data' }, 
+        withCredentials: true,
+      });
+    // const response = await fetch(`${BASE_URL}/post`, {
+    //   method: 'PUT',
+    //   body: data,
+    //   credentials: 'include',
+    // });
+    console.log(response);
     if (response.ok) {
       setRedirect(true);
     }
