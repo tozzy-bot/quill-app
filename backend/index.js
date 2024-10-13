@@ -18,6 +18,7 @@ const secret = process.env.JWT_SECERET;
 app.use(cookieParser());
 app.use(cors({
   origin: 'https://quill-app-frontend.onrender.com',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));  //CORS
 app.use(express.json());
